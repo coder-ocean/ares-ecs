@@ -1,14 +1,16 @@
 const express = require('express');
-const app = express();
+const axios = require('axios');
 
+const app = express();
 app.set('view engine', 'ejs');
 
 const URL = process.env.BACKEND_URL || "/api";
 
 app.get('/', async function(req, res) {
     try {
-        const response = await fetch(URL);
-        const result = await response.json();
+
+        const response = await axios.get(URL);
+        const result = response.data;
 
         res.render('index', { data: result.data });
 

@@ -61,6 +61,13 @@ resource "aws_ecs_task_definition" "frontend" {
           hostPort      = 3000
         }
       ]
+
+      environment = [
+        {
+          name  = "BACKEND_URL"
+          value = "http://${aws_lb.main.dns_name}/api"
+        }
+      ]
     }
   ])
 

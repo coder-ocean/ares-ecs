@@ -3,7 +3,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-const URL = process.env.BACKEND_URL || "http://localhost:5000/api";
+const URL = process.env.BACKEND_URL || "/api";
 
 app.get('/', async function(req, res) {
     try {
